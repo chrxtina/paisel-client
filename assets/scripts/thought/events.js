@@ -11,12 +11,15 @@ const onCreateThought = function (event) {
   api.createThought(data)
     .done(ui.createThoughtSuccess)
     .fail(ui.createThoughtFail);
+  api.indexThoughts()
+    .done(ui.indexThoughtsSuccess)
+    .fail(ui.failure);
 };
 
 const onIndexThoughts = function (event) {
   event.preventDefault();
   api.indexThoughts()
-    .done(ui.success)
+    .done(ui.indexThoughtsSuccess)
     .fail(ui.failure);
 };
 
@@ -34,6 +37,9 @@ const onEditThought = function (event) {
   api.editThought(data)
     .done(ui.success)
     .fail(ui.failire);
+  api.indexThoughts()
+    .done(ui.indexThoughtsSuccess)
+    .fail(ui.failure);
 };
 
 const onDeleteThought = function (event) {
@@ -41,6 +47,9 @@ const onDeleteThought = function (event) {
   let data = getFormFields(event.target);
   api.deleteThought(data)
     .done(ui.success)
+    .fail(ui.failure);
+  api.indexThoughts()
+    .done(ui.indexThoughtsSuccess)
     .fail(ui.failure);
 };
 

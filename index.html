@@ -1,68 +1,45 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Project 2</title>
-
+      <title>Paisel</title>
+      <link rel='shortcut icon' href='./assets/images/favicon.ico' type='image/x-icon'>
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body class="container-fluid">
-      <h1>Project 2</h1>
+      <h1>Paisel</h1>
+
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              Menu <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li>
+                <button type="button" id="change-password-button"  data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
+              </li>
+              <li>
+                <form id="sign-out">
+                  <button type="submit"  name="submit">Sign out</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
 
       <div id="message"></div>
 
-      <!-- Sign Up -->
-      <form id="sign-up">
-        <fieldset>
-          <div class="form-group">
-            <input type="email" class="form-control" name="credentials[email]" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Password Confirm">
-          </div>
-          <button type="submit" class="btn btn-primary pull-right" name="submit">Sign Up</button>
-        </fieldset>
-      </form>
-
-      <!-- Sign In -->
-      <form class="form-inline" id="sign-in">
-        <fieldset>
-          <div class="form-group">
-            <input type="email" class="form-control" name="credentials[email]" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-primary" name="submit">Log in</button>
-        </fieldset>
-      </form>
-
-      <!-- Change Password -->
-      <form id="change-password">
-        <fieldset>
-          <div class="form-group">
-            <input type="password" class="form-control" name="passwords[old]" placeholder="Old Password">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" name="passwords[new]" placeholder="New Password">
-          </div>
-          <button type="submit" class="btn btn-primary pull-right" name="submit">Change Password</button>
-        </fieldset>
-      </form>
-
-      <!-- Log Off -->
-      <form id="sign-out">
-        <button type="submit"  name="submit">Sign out</button>
-      </form>
+      <button type="button" class="btn btn-primary" id="sign-in-button">Log In</button>
+      <button type="button" class="btn btn-primary" id="sign-up-button">Sign Up</button>
 
       <!-- Create Thought -->
       <form id="create-thought">
         <fieldset>
           <div class="form-group">
-            <input type="text" class="form-control" name="thought[content]" placeholder="Thoughts...">
+            <input type="text" class="form-control input" name="thought[content]" placeholder="Thoughts...">
           </div>
           <button type="submit" class="btn btn-primary pull-right" name="submit">Post</button>
         </fieldset>
@@ -70,21 +47,21 @@
 
       <!-- Index Thoughts -->
       <form id="index-thoughts">
-         <button type="submit" name="submit" class="btn btn-default">All Thoughts</button>
+         <button type="submit" name="submit" class="btn btn-primary">All Thoughts</button>
       </form>
 
       <!-- Show Thought -->
       <form id="show-thought">
-        <input type="text" name="thought[id]" placeholder="Thought ID">
-        <button type="submit" name="submit" class="btn btn-default">Show Thought</button>
+        <input type="text" class="form-control input" name="thought[id]" placeholder="Thought ID">
+        <button type="submit" name="submit" class="btn btn-primary">Show Thought</button>
       </form>
 
       <!-- Edit Thought -->
       <form id="edit-thought">
         <fieldset>
-          <input type="text" name="thought[id]" placeholder="Thought ID">
+          <input type="text" name="thought[id]" placeholder="Thought ID" class="form-control input">
           <div class="form-group">
-            <input type="text" class="form-control" name="thought[content]" placeholder="Edit your thought!">
+            <input type="text" class="form-control input" name="thought[content]" placeholder="Edit your thought!">
           </div>
           <button type="submit" class="btn btn-primary pull-right" name="submit">Submit Edit</button>
         </fieldset>
@@ -92,11 +69,97 @@
 
       <!-- Delete Thought -->
       <form id="delete-thought">
-        <input type="text" name="thought[id]" placeholder="Thought ID">
-        <button type="submit" name="submit" class="btn btn-default">Delete</button>
+        <input type="text" class="form-control input" name="thought[id]" placeholder="Thought ID">
+        <button type="submit" name="submit" class="btn btn-primary">Delete</button>
       </form>
 
+      <!-- Display Content -->
+      <div class="content"></div>
 
+      <!-- Modals -->
+
+      <!-- Sign Up -->
+      <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Sign Up</h4>
+          </div>
+          <div class="modal-body">
+            <form id="sign-up">
+              <fieldset>
+                <div class="form-group">
+                  <input type="email" class="form-control input" name="credentials[email]" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control input" name="credentials[password]" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control input" name="credentials[password_confirmation]" placeholder="Password Confirm">
+                </div>
+                <button type="submit" class="btn btn-primary pull-right" name="submit">Sign Up</button>
+              </fieldset>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-toggle="modal" data-target="#signInModal" data-dismiss="modal">Log In</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign In -->
+    <div class="modal fade" id="signInModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Log in</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-inline" id="sign-in">
+                <fieldset>
+                  <div class="form-group">
+                    <input type="email" class="form-control input" name="credentials[email]" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control input" name="credentials[password]" placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn btn-primary" name="submit">Log in</button>
+                </fieldset>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-toggle="modal" data-target="#signUpModal" data-dismiss="modal">Sign up</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Change Password -->
+      <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Change Password</h4>
+            </div>
+            <div class="modal-body">
+              <form id="change-password">
+                <fieldset>
+                  <div class="form-group">
+                    <input type="password" class="form-control input" name="passwords[old]" placeholder="Old Password">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control input" name="passwords[new]" placeholder="New Password">
+                  </div>
+                  <button type="submit" class="btn btn-primary pull-right" name="submit">Change Password</button>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </body>
 </html>

@@ -2,33 +2,55 @@
 
 const app = require('../app');
 
+const displayMessage = () => {
+  $('#message').fadeIn('fast').delay(3000).fadeOut('fast');
+};
+
+const clearInputField = () => {
+  $('.input').val('');
+};
+
+const showSignButtons = () => {
+  $('#sign-in-button').show();
+  $('#sign-up-button').show();
+};
+
 const signUpSuccess = () => {
   $('#signInModal').modal('show');
+  clearInputField();
 };
 
 const signInSuccess = (data) => {
   app.user = data.user;
+  $('#sign-in-button').hide();
+  $('#sign-up-button').hide();
+  clearInputField();
+  $('nav').show();
 };
 
 const signFailure = () => {
   document.getElementById("message").innerHTML = 'Sorry! Please try again';
-  $('#message').fadeIn('fast').delay(5000).fadeOut('fast');
-  $('#sign-in-button').show();
+  displayMessage();
+  showSignButtons();
+  clearInputField();
 };
 
 const signOutSuccess = () => {
   app.user = null;
-  $('#signInModal').modal('show');
+  document.getElementById("message").innerHTML = 'Logged out';
+  displayMessage();
+  showSignButtons();
 };
 
 const changePasswordSuccess = () => {
   document.getElementById("message").innerHTML = 'Password successfully changed';
-  $('#message').fadeIn('fast').delay(4000).fadeOut('fast');
+  displayMessage();
+  clearInputField();
 };
 
 const failure = (error) => {
   document.getElementById("message").innerHTML = 'Error: ' + error.statusText;
-  $('#message').fadeIn('fast').delay(4000).fadeOut('fast');
+  displayMessage();
 };
 
 module.exports = {
