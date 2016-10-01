@@ -36,7 +36,7 @@ const onEditThought = function (event) {
   let data = getFormFields(event.target);
   api.editThought(data)
     .done(ui.success)
-    .fail(ui.failire);
+    .fail(ui.failure);
   api.indexThoughts()
     .done(ui.indexThoughtsSuccess)
     .fail(ui.failure);
