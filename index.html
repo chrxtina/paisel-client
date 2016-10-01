@@ -58,5 +58,45 @@
         <button type="submit"  name="submit">Sign out</button>
       </form>
 
+      <!-- Create Thought -->
+      <form id="create-thought">
+        <fieldset>
+          <div class="form-group">
+            <input type="text" class="form-control" name="thought[content]" placeholder="Thoughts...">
+          </div>
+          <button type="submit" class="btn btn-primary pull-right" name="submit">Post</button>
+        </fieldset>
+      </form>
+
+      <!-- Index Thoughts -->
+      <form id="index-thoughts">
+         <button type="submit" name="submit" class="btn btn-default">All Thoughts</button>
+      </form>
+
+      <!-- Show Thought -->
+      <form id="show-thought">
+        <input type="text" name="thought[id]" placeholder="Thought ID">
+        <button type="submit" name="submit" class="btn btn-default">Show Thought</button>
+      </form>
+
+      <!-- Edit Thought -->
+      <form id="edit-thought">
+        <fieldset>
+          <input type="text" name="thought[id]" placeholder="Thought ID">
+          <div class="form-group">
+            <input type="text" class="form-control" name="thought[content]" placeholder="Edit your thought!">
+          </div>
+          <button type="submit" class="btn btn-primary pull-right" name="submit">Submit Edit</button>
+        </fieldset>
+      </form>
+
+      <!-- Delete Thought -->
+      <form id="delete-thought">
+        <input type="text" name="thought[id]" placeholder="Thought ID">
+        <button type="submit" name="submit" class="btn btn-default">Delete</button>
+      </form>
+
+
+
     </body>
 </html>

@@ -7,8 +7,10 @@
 require('./example');
 
 const authEvents = require('./auth/events.js');
+const thoughtEvents = require('./thought/events.js');
 
 // On document ready
 $(() => {
   authEvents.addHandlers();
+  thoughtEvents.addHandlers();
 });
