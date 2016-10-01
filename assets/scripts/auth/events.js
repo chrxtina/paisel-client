@@ -6,7 +6,7 @@ const api = require('./api');
 const ui = require('./ui');
 
 $(window).load(function(){
-  $('nav').hide();
+  $('nav, .container').hide();
 });
 
 const showSignInModal = function (){

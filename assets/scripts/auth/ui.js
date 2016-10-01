@@ -25,7 +25,7 @@ const signInSuccess = (data) => {
   $('#sign-in-button').hide();
   $('#sign-up-button').hide();
   clearInputField();
-  $('nav').show();
+  $('nav, .container').show();
 };
 
 const signFailure = () => {

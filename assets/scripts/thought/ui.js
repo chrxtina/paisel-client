@@ -40,6 +40,4 @@ module.exports = {
   indexThoughtsSuccess,
   success,
   failure
-  // success,
-  // failure
 };
