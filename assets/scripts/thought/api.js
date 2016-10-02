@@ -38,11 +38,10 @@ const showThought = (data) => {
   });
 };
 
-const editThought = (data) => {
-  let thought_id = data.thought.id;
+const updateThought = (data, id) => {
   let token = app.user.token;
   return $.ajax({
-    url: app.host + '/thoughts/' + thought_id,
+    url: app.host + '/thoughts/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + token,
@@ -51,11 +50,10 @@ const editThought = (data) => {
   });
 };
 
-const deleteThought = (data) => {
+const deleteThought = (id) => {
   let token = app.user.token;
-  let thought_id = data.thought.id;
   return $.ajax({
-    url: app.host + '/thoughts/' + thought_id,
+    url: app.host + '/thoughts/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + token,
@@ -68,6 +66,6 @@ module.exports = {
   createThought,
   indexThoughts,
   showThought,
-  editThought,
+  updateThought,
   deleteThought
 };

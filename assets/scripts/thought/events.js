@@ -31,35 +31,49 @@ const onShowThought = function (event) {
     .fail(ui.failure);
 };
 
-const onEditThought = function (event) {
+const addIdUpdateButton =  function (event){
   event.preventDefault();
+  let id = $(event.target).attr("data-thought-id");
+  $(".update-thought-button").attr("data-thought-id", id);
+};
+
+const onUpdateThought = function (event) {
+  event.preventDefault();
+  let id = $(".update-thought-button").attr("data-thought-id");
   let data = getFormFields(event.target);
-  api.editThought(data)
-    .done(ui.success)
+  api.updateThought(data, id)
+    .done(ui.updateThoughtSuccess)
     .fail(ui.failure);
   api.indexThoughts()
     .done(ui.indexThoughtsSuccess)
     .fail(ui.failure);
+};
+
+const addIdDeleteButton =  function (event){
+  event.preventDefault();
+  let id = $(event.target).attr("data-thought-id");
+  $(".delete-thought-button").attr("data-thought-id", id);
 };
 
 const onDeleteThought = function (event) {
   event.preventDefault();
-  let data = getFormFields(event.target);
-  api.deleteThought(data)
+  let id = $(this).attr("data-thought-id");
+  api.deleteThought(id)
     .done(ui.success)
     .fail(ui.failure);
   api.indexThoughts()
     .done(ui.indexThoughtsSuccess)
     .fail(ui.failure);
 };
-
 
 const addHandlers = () => {
   $('#create-thought').on('submit', onCreateThought);
   $('#index-thoughts').on('submit', onIndexThoughts);
   $('#show-thought').on('submit', onShowThought);
-  $('#edit-thought').on('submit', onEditThought);
-  $('#delete-thought').on('submit', onDeleteThought);
+  $('.content-display').on('click','.update-thought',addIdUpdateButton);
+  $('#updateThoughtModal').on('submit', onUpdateThought);
+  $('.content-display').on('click','.delete-thought',addIdDeleteButton);
+  $('#delete-thought-button').on('click', onDeleteThought);
 };
 
 module.exports = {

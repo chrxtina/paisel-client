@@ -19,8 +19,13 @@ const createThoughtFail = (data) => {
 };
 
 const indexThoughtsSuccess = (thoughts) => {
-  $('.content').html(showThoughtsTemplate(thoughts));
+  $('.content-display').html(showThoughtsTemplate(thoughts));
   console.log(thoughts);
+};
+
+const updateThoughtSuccess = () => {
+  clearInputField();
+  $('#updateThoughtModal').modal('hide');
 };
 
 const success = (data) => {
@@ -38,6 +43,7 @@ module.exports = {
   createThoughtSuccess,
   createThoughtFail,
   indexThoughtsSuccess,
+  updateThoughtSuccess,
   success,
   failure
 };

@@ -58,7 +58,7 @@
         </form> -->
 
         <!-- Edit Thought -->
-        <form id="edit-thought">
+        <!-- <form id="edit-thought">
           <fieldset>
             <input type="text" name="thought[id]" placeholder="Thought ID" class="form-control input">
             <div class="form-group">
@@ -66,16 +66,16 @@
             </div>
             <button type="submit" class="btn btn-primary pull-right" name="submit">Submit Edit</button>
           </fieldset>
-        </form>
+        </form> -->
 
         <!-- Delete Thought -->
-        <form id="delete-thought">
+        <!-- <form id="delete-thought">
           <input type="text" class="form-control input" name="thought[id]" placeholder="Thought ID">
           <button type="submit" name="submit" class="btn btn-primary">Delete</button>
-        </form>
+        </form> -->
 
         <!-- Display Content -->
-        <div class="content"></div>
+        <div class="content-display"></div>
       </div>
 
 
@@ -163,6 +163,46 @@
           </div>
         </div>
       </div>
+
+      <!-- Update Thought -->
+      <div class="modal fade" id="updateThoughtModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Edit Thought</h4>
+          </div>
+          <div class="modal-body">
+            <form id="edit-thought">
+              <fieldset>
+                <div class="form-group">
+                  <input type="text" class="form-control input" name="thought[content]" placeholder="Edit your thought!">
+                </div>
+                  <button type="submit" class="btn btn-primary pull-right update-thought-button" name="submit">Submit</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!-- Delete Thought -->
+      <div class="modal fade" id="deleteThoughtModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Are you sure?</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-danger delete-thought-button" id="delete-thought-button" data-dismiss="modal">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     </body>
 </html>
