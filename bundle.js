@@ -243,7 +243,7 @@ webpackJsonp([0],[
 	'use strict';
 
 	var app = {
-	  host: 'http://localhost:3000'
+	  host: 'https://peaceful-reef-97358.herokuapp.com'
 	};
 
 	module.exports = app;
