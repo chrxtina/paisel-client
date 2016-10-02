@@ -40,6 +40,7 @@ const signOutSuccess = () => {
   document.getElementById("message").innerHTML = 'Logged out';
   displayMessage();
   showSignButtons();
+  $('nav, .container').hide();
 };
 
 const changePasswordSuccess = () => {
