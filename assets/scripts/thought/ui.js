@@ -6,7 +6,8 @@ const clearInputField = () => {
   $('.input').val('');
 };
 
-const showThoughtsTemplate = require('../templates/thought-listing.handlebars');
+const indexThoughtsTemplate = require('../templates/index-thoughts-listing.handlebars');
+const myThoughtsTemplate = require('../templates/my-thoughts-listing.handlebars');
 
 const createThoughtSuccess = (data) => {
   clearInputField();
@@ -19,7 +20,12 @@ const createThoughtFail = (data) => {
 };
 
 const indexThoughtsSuccess = (thoughts) => {
-  $('.content-display').html(showThoughtsTemplate(thoughts));
+  $('.content-display').html(indexThoughtsTemplate(thoughts));
+  console.log(thoughts);
+};
+
+const myThoughtsSuccess = (thoughts) => {
+  $('.content-display').html(myThoughtsTemplate(thoughts));
   console.log(thoughts);
 };
 
@@ -43,6 +49,7 @@ module.exports = {
   createThoughtSuccess,
   createThoughtFail,
   indexThoughtsSuccess,
+  myThoughtsSuccess,
   updateThoughtSuccess,
   success,
   failure
