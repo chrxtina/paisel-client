@@ -1,6 +1,6 @@
 // $logo-board-font: 'Julius Sans One', sans-serif;
 // $main-font: 'Quicksand', sans-serif;
-// 
+//
 // h1,
 // .board-wrapper {
 //   font-family: $logo-board-font;
@@ -10,10 +10,11 @@
 //   font-family: $main-font;
 // }
 //
-// h1 {
-//   font-size: 45px;
-//   font-weight: bold;
-// }
+h1,
+h2 {
+  font-family: courier;
+  font-weight: bold;
+}
 //
 // section {
 //   font-size: 20px;

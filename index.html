@@ -30,21 +30,28 @@
         </ul>
       </nav>
 
-      <div id="message"></div>
+      <div class="wrapper">
+        <div id="message"></div>
 
-      <button type="button" class="btn btn-primary" id="sign-in-button">Log In</button>
-      <button type="button" class="btn btn-primary" id="sign-up-button">Sign Up</button>
+        <div class="sign-button">
+          <button type="button" class="btn btn-primary" id="sign-in-button">Log In</button>
+          <button type="button" class="btn btn-primary" id="sign-up-button">Sign Up</button>
+        </div>
+      </div>
+
 
       <div class="container">
         <!-- Create Thought -->
-        <form id="create-thought">
-          <fieldset>
-            <div class="form-group">
-              <input type="text" class="form-control input" name="thought[content]" placeholder="Thoughts...">
-            </div>
-            <button type="submit" class="btn btn-primary pull-right" name="submit">Post</button>
-          </fieldset>
-        </form>
+        <div class="create-thought-form">
+          <form id="create-thought">
+            <fieldset>
+              <div class="form-group">
+                <input type="text" class="form-control input" name="thought[content]" placeholder="Thoughts...">
+              </div>
+              <button type="submit" class="btn btn-primary pull-right" name="submit">Post</button>
+            </fieldset>
+          </form>
+        </div>
 
         <!-- Index Thoughts -->
         <form id="index-thoughts">
@@ -55,23 +62,6 @@
         <!-- <form id="show-thought">
           <input type="text" class="form-control input" name="thought[id]" placeholder="Thought ID">
           <button type="submit" name="submit" class="btn btn-primary">Show Thought</button>
-        </form> -->
-
-        <!-- Edit Thought -->
-        <!-- <form id="edit-thought">
-          <fieldset>
-            <input type="text" name="thought[id]" placeholder="Thought ID" class="form-control input">
-            <div class="form-group">
-              <input type="text" class="form-control input" name="thought[content]" placeholder="Edit your thought!">
-            </div>
-            <button type="submit" class="btn btn-primary pull-right" name="submit">Submit Edit</button>
-          </fieldset>
-        </form> -->
-
-        <!-- Delete Thought -->
-        <!-- <form id="delete-thought">
-          <input type="text" class="form-control input" name="thought[id]" placeholder="Thought ID">
-          <button type="submit" name="submit" class="btn btn-primary">Delete</button>
         </form> -->
 
         <!-- Display Content -->
