@@ -2,7 +2,52 @@
 // $width: (4 * $unit);
 // $height: (4 * $unit);
 //
-// body {
-//   background-image: url('../images/oceanfade.jpg');
-//   background-size: cover;
-// }
+
+.wrapper {
+  height: 40px;
+  text-align: center;
+}
+
+.btn {
+  background-color: $burgundy;
+  border: 0;
+  color: $light-grey;
+}
+
+.thought {
+  border-top: 1px solid $med-grey;
+  margin: 0;
+  padding: 15px 0;
+}
+
+li button {
+  background: 0;
+  border: 0;
+  margin-left: 8px;
+}
+
+nav {
+  float: right;
+  margin: -30px 10px 0 0;
+}
+
+.container {
+  text-align: center;
+}
+
+.wrapper,
+.container {
+  clear: both;
+}
+
+.create-thought-form {
+  margin: 0 auto;
+  width: 75%;
+}
+
+
+.sign-button {
+  left: 44%;
+  position: absolute;
+  top: 50%;
+}
