@@ -16,8 +16,10 @@ const onCreateThought = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
   api.createThought(data)
-    .done(ui.createThoughtSuccess)
-    .done(onIndexThoughts(event))
+    .done( function(){
+      ui.createThoughtSuccess();
+      onIndexThoughts(event);
+    })
     .fail(ui.createThoughtFail);
 };
 
@@ -42,13 +44,25 @@ const addIdUpdateButton =  function (event){
   $(".update-thought-button").attr("data-thought-id", id);
 };
 
+// const onUpdateThought = function (event) {
+//   event.preventDefault();
+//   let id = $(".update-thought-button").attr("data-thought-id");
+//   let data = getFormFields(event.target);
+//   api.updateThought(data, id)
+//     .done(ui.updateThoughtSuccess)
+//     .done(onMyThoughts(event))
+//     .fail(ui.failure);
+// };
+
 const onUpdateThought = function (event) {
   event.preventDefault();
   let id = $(".update-thought-button").attr("data-thought-id");
   let data = getFormFields(event.target);
   api.updateThought(data, id)
-    .done(ui.updateThoughtSuccess)
-    .done(onMyThoughts(event))
+    .done( function(){
+      ui.updateThoughtSuccess();
+      onMyThoughts(event);
+    })
     .fail(ui.failure);
 };
 
@@ -58,12 +72,23 @@ const addIdDeleteButton =  function (event){
   $(".delete-thought-button").attr("data-thought-id", id);
 };
 
+// const onDeleteThought = function (event) {
+//   event.preventDefault();
+//   let id = $(this).attr("data-thought-id");
+//   api.deleteThought(id)
+//     .done(ui.success)
+//     .done(onMyThoughts(event))
+//     .fail(ui.failure);
+// };
+
 const onDeleteThought = function (event) {
   event.preventDefault();
   let id = $(this).attr("data-thought-id");
   api.deleteThought(id)
-    .done(ui.success)
-    .done(onMyThoughts(event))
+    .done( function() {
+      ui.success();
+      onMyThoughts(event);
+    })
     .fail(ui.failure);
 };
 
