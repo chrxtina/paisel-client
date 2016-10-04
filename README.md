@@ -14,7 +14,7 @@ Paisel is an anonymous thought sharing app that gives users an outlet for their 
 - Create and view all or own thoughts
 - Edit and delete own thoughts
 
-## Technologies Used:
+## Technologies Used
 
 - Front-end: HTML/SCSS/Sass, Javascript, Bootstrap, AJAX, jQuery, Handlebars.js
 - Back-end: Ruby on Rails
