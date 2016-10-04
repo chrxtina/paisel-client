@@ -5,22 +5,20 @@ const getFormFields = require(`../../../lib/get-form-fields`);
 const api = require('./api');
 const ui = require('./ui');
 
-const onCreateThought = function (event) {
-  event.preventDefault();
-  let data = getFormFields(event.target);
-  api.createThought(data)
-    .done(ui.createThoughtSuccess)
-    .fail(ui.createThoughtFail);
-  api.indexThoughts()
-    .done(ui.indexThoughtsSuccess)
-    .fail(ui.failure);
-};
-
 const onIndexThoughts = function (event) {
   event.preventDefault();
   api.indexThoughts()
     .done(ui.indexThoughtsSuccess)
     .fail(ui.failure);
+};
+
+const onCreateThought = function (event) {
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  api.createThought(data)
+    .done(ui.createThoughtSuccess)
+    .done(onIndexThoughts(event))
+    .fail(ui.createThoughtFail);
 };
 
 const onMyThoughts = function (event) {
