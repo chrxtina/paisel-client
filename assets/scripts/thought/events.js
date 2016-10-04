@@ -5,22 +5,20 @@ const getFormFields = require(`../../../lib/get-form-fields`);
 const api = require('./api');
 const ui = require('./ui');
 
-const onCreateThought = function (event) {
-  event.preventDefault();
-  let data = getFormFields(event.target);
-  api.createThought(data)
-    .done(ui.createThoughtSuccess)
-    .fail(ui.createThoughtFail);
-  api.indexThoughts()
-    .done(ui.indexThoughtsSuccess)
-    .fail(ui.failure);
-};
-
 const onIndexThoughts = function (event) {
   event.preventDefault();
   api.indexThoughts()
     .done(ui.indexThoughtsSuccess)
     .fail(ui.failure);
+};
+
+const onCreateThought = function (event) {
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  api.createThought(data)
+    .done(ui.createThoughtSuccess)
+    .done(onIndexThoughts(event))
+    .fail(ui.createThoughtFail);
 };
 
 const onMyThoughts = function (event) {
@@ -50,9 +48,7 @@ const onUpdateThought = function (event) {
   let data = getFormFields(event.target);
   api.updateThought(data, id)
     .done(ui.updateThoughtSuccess)
-    .fail(ui.failure);
-  api.myThoughts()
-    .done(ui.myThoughtsSuccess)
+    .done(onMyThoughts(event))
     .fail(ui.failure);
 };
 
@@ -67,9 +63,7 @@ const onDeleteThought = function (event) {
   let id = $(this).attr("data-thought-id");
   api.deleteThought(id)
     .done(ui.success)
-    .fail(ui.failure);
-  api.myThoughts()
-    .done(ui.myThoughtsSuccess)
+    .done(onMyThoughts(event))
     .fail(ui.failure);
 };
 
