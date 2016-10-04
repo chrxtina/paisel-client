@@ -71,19 +71,21 @@ webpackJsonp([0],[
 	  $('#signUpModal').modal('show');
 	};
 
-	var onSignUp = function onSignUp(event) {
-	  event.preventDefault();
-	  $('#signUpModal').modal('hide');
-	  var data = getFormFields(event.target);
-	  api.signUp(data).done(ui.signUpSuccess).fail(ui.signFailure);
-	};
-
 	var onSignIn = function onSignIn(event) {
 	  event.preventDefault();
 	  $('#signInModal').modal('hide');
 	  $('#sign-in-button').hide();
 	  var data = getFormFields(event.target);
 	  api.signIn(data).done(ui.signInSuccess).fail(ui.signFailure);
+	};
+
+	var onSignUp = function onSignUp(event) {
+	  event.preventDefault();
+	  $('#signUpModal').modal('hide');
+	  var data = getFormFields(event.target);
+	  api.signUp(data).done(function () {
+	    onSignIn(event, data);
+	  }).fail(ui.signFailure);
 	};
 
 	var onChangePassword = function onChangePassword(event) {
@@ -341,7 +343,10 @@ webpackJsonp([0],[
 	var onCreateThought = function onCreateThought(event) {
 	  event.preventDefault();
 	  var data = getFormFields(event.target);
-	  api.createThought(data).done(ui.createThoughtSuccess).done(onIndexThoughts(event)).fail(ui.createThoughtFail);
+	  api.createThought(data).done(function () {
+	    ui.createThoughtSuccess();
+	    onIndexThoughts(event);
+	  }).fail(ui.createThoughtFail);
 	};
 
 	var onMyThoughts = function onMyThoughts(event) {
@@ -361,11 +366,24 @@ webpackJsonp([0],[
 	  $(".update-thought-button").attr("data-thought-id", id);
 	};
 
+	// const onUpdateThought = function (event) {
+	//   event.preventDefault();
+	//   let id = $(".update-thought-button").attr("data-thought-id");
+	//   let data = getFormFields(event.target);
+	//   api.updateThought(data, id)
+	//     .done(ui.updateThoughtSuccess)
+	//     .done(onMyThoughts(event))
+	//     .fail(ui.failure);
+	// };
+
 	var onUpdateThought = function onUpdateThought(event) {
 	  event.preventDefault();
 	  var id = $(".update-thought-button").attr("data-thought-id");
 	  var data = getFormFields(event.target);
-	  api.updateThought(data, id).done(ui.updateThoughtSuccess).done(onMyThoughts(event)).fail(ui.failure);
+	  api.updateThought(data, id).done(function () {
+	    ui.updateThoughtSuccess();
+	    onMyThoughts(event);
+	  }).fail(ui.failure);
 	};
 
 	var addIdDeleteButton = function addIdDeleteButton(event) {
@@ -374,10 +392,22 @@ webpackJsonp([0],[
 	  $(".delete-thought-button").attr("data-thought-id", id);
 	};
 
+	// const onDeleteThought = function (event) {
+	//   event.preventDefault();
+	//   let id = $(this).attr("data-thought-id");
+	//   api.deleteThought(id)
+	//     .done(ui.success)
+	//     .done(onMyThoughts(event))
+	//     .fail(ui.failure);
+	// };
+
 	var onDeleteThought = function onDeleteThought(event) {
 	  event.preventDefault();
 	  var id = $(this).attr("data-thought-id");
-	  api.deleteThought(id).done(ui.success).done(onMyThoughts(event)).fail(ui.failure);
+	  api.deleteThought(id).done(function () {
+	    ui.success();
+	    onMyThoughts(event);
+	  }).fail(ui.failure);
 	};
 
 	var addHandlers = function addHandlers() {
