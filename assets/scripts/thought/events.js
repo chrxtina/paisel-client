@@ -23,6 +23,13 @@ const onIndexThoughts = function (event) {
     .fail(ui.failure);
 };
 
+const onMyThoughts = function (event) {
+  event.preventDefault();
+  api.myThoughts()
+    .done(ui.myThoughtsSuccess)
+    .fail(ui.failure);
+};
+
 const onShowThought = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
@@ -44,8 +51,8 @@ const onUpdateThought = function (event) {
   api.updateThought(data, id)
     .done(ui.updateThoughtSuccess)
     .fail(ui.failure);
-  api.indexThoughts()
-    .done(ui.indexThoughtsSuccess)
+  api.myThoughts()
+    .done(ui.myThoughtsSuccess)
     .fail(ui.failure);
 };
 
@@ -61,14 +68,15 @@ const onDeleteThought = function (event) {
   api.deleteThought(id)
     .done(ui.success)
     .fail(ui.failure);
-  api.indexThoughts()
-    .done(ui.indexThoughtsSuccess)
+  api.myThoughts()
+    .done(ui.myThoughtsSuccess)
     .fail(ui.failure);
 };
 
 const addHandlers = () => {
   $('#create-thought').on('submit', onCreateThought);
   $('#index-thoughts').on('submit', onIndexThoughts);
+  $('#my-thoughts').on('submit', onMyThoughts);
   $('#show-thought').on('submit', onShowThought);
   $('.content-display').on('click','.update-thought',addIdUpdateButton);
   $('#updateThoughtModal').on('submit', onUpdateThought);

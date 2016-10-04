@@ -3,8 +3,32 @@
 // $height: (4 * $unit);
 //
 
+body {
+  background-color: $background;
+}
+
+h1 {
+  margin: 20px 10px;
+}
+
+.header {
+  margin: 20px 0 0 10px;
+
+  img {
+    float: left;
+    height: 100px;
+    width: 100px;
+  }
+
+  h1 {
+    left: 10px;
+    position: relative;
+    top: 18px;
+  }
+}
+
 .wrapper {
-  height: 40px;
+  height: 50px;
   text-align: center;
 }
 
@@ -15,7 +39,7 @@
 }
 
 .thought {
-  border-top: 1px solid $med-grey;
+  border-top: 1px solid $thought-border;
   margin: 0;
   padding: 15px 0;
 }
@@ -29,10 +53,18 @@ li button {
 nav {
   float: right;
   margin: -30px 10px 0 0;
+
+  .dropdown-toggle {
+    color: $med-grey;
+  }
 }
 
 .container {
   text-align: center;
+
+  .content-display {
+    padding-top: 5px;
+  }
 }
 
 .wrapper,
@@ -45,9 +77,18 @@ nav {
   width: 75%;
 }
 
-
-.sign-button {
-  left: 44%;
+.sign-buttons {
+  left: 42%;
   position: absolute;
   top: 50%;
+
+  .sign-in-button,
+  .sign-up-button {
+    margin: 0 7px;
+  }
+}
+
+.thought-buttons {
+  display: inline;
+  margin: 0 7px;
 }

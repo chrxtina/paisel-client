@@ -8,7 +8,12 @@
     </head>
 
     <body class="container-fluid">
-      <h1>Paisel</h1>
+
+      <div class="header">
+        <img src="./assets/images/paisel.png" alt="logo" />
+        <h1>Paisel</h1>
+      </div>
+
 
       <nav>
         <ul class="nav nav-pills pull-right">
@@ -31,11 +36,11 @@
       </nav>
 
       <div class="wrapper">
-        <div id="message"></div>
+        <div class="message" id="message"></div>
 
-        <div class="sign-button">
-          <button type="button" class="btn btn-primary" id="sign-in-button">Log In</button>
-          <button type="button" class="btn btn-primary" id="sign-up-button">Sign Up</button>
+        <div class="sign-buttons">
+          <button type="button" class="btn btn-primary sign-in-button" id="sign-in-button">Log In</button>
+          <button type="button" class="btn btn-primary sign-up-button" id="sign-up-button">Sign Up</button>
         </div>
       </div>
 
@@ -53,10 +58,17 @@
           </form>
         </div>
 
-        <!-- Index Thoughts -->
-        <form id="index-thoughts">
-           <button type="submit" name="submit" class="btn btn-primary">All Thoughts</button>
-        </form>
+        <div>
+          <!-- Index Thoughts -->
+          <form id="index-thoughts" class="thought-buttons">
+             <button type="submit" name="submit" class="btn btn-primary">All Thoughts</button>
+          </form>
+
+          <!-- My Thoughts -->
+          <form id="my-thoughts" class="thought-buttons">
+             <button type="submit" name="submit" class="btn btn-primary">My Thoughts</button>
+          </form>
+        </div>
 
         <!-- Show Thought -->
         <!-- <form id="show-thought">
@@ -71,7 +83,7 @@
 
       <!-- Modals -->
 
-      <!-- Sign Up -->
+      <!-- Sign Up Modal-->
       <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -102,7 +114,7 @@
       </div>
     </div>
 
-    <!-- Sign In -->
+    <!-- Sign In Modal-->
     <div class="modal fade" id="signInModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -130,7 +142,7 @@
         </div>
       </div>
 
-      <!-- Change Password -->
+      <!-- Change Password Modal-->
       <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -154,7 +166,7 @@
         </div>
       </div>
 
-      <!-- Update Thought -->
+      <!-- Update Thought Modal-->
       <div class="modal fade" id="updateThoughtModal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -176,7 +188,7 @@
       </div>
       </div>
 
-      <!-- Delete Thought -->
+      <!-- Delete Thought Modal-->
       <div class="modal fade" id="deleteThoughtModal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -193,6 +205,5 @@
         </div>
       </div>
     </div>
-
     </body>
 </html>

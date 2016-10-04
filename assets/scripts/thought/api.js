@@ -26,6 +26,17 @@ const indexThoughts = () => {
   });
 };
 
+const myThoughts = () => {
+  let token = app.user.token;
+  return $.ajax({
+    url: app.host + '/mythoughts',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + token,
+    }
+  });
+};
+
 const showThought = (data) => {
   let token = app.user.token;
   let thought_id = data.thought.id;
@@ -65,6 +76,7 @@ const deleteThought = (id) => {
 module.exports = {
   createThought,
   indexThoughts,
+  myThoughts,
   showThought,
   updateThought,
   deleteThought

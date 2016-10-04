@@ -6,21 +6,23 @@ const clearInputField = () => {
   $('.input').val('');
 };
 
-const showThoughtsTemplate = require('../templates/thought-listing.handlebars');
+const indexThoughtsTemplate = require('../templates/index-thoughts-listing.handlebars');
+const myThoughtsTemplate = require('../templates/my-thoughts-listing.handlebars');
 
-const createThoughtSuccess = (data) => {
+const createThoughtSuccess = () => {
   clearInputField();
-  console.log("Thought successfully created!", data);
 };
 
-const createThoughtFail = (data) => {
+const createThoughtFail = () => {
   clearInputField();
-  console.log("Thought creation failed!", data);
 };
 
 const indexThoughtsSuccess = (thoughts) => {
-  $('.content-display').html(showThoughtsTemplate(thoughts));
-  console.log(thoughts);
+  $('.content-display').html(indexThoughtsTemplate(thoughts));
+};
+
+const myThoughtsSuccess = (thoughts) => {
+  $('.content-display').html(myThoughtsTemplate(thoughts));
 };
 
 const updateThoughtSuccess = () => {
@@ -28,14 +30,12 @@ const updateThoughtSuccess = () => {
   $('#updateThoughtModal').modal('hide');
 };
 
-const success = (data) => {
+const success = () => {
   clearInputField();
-  console.log("SUCCESS!", data);
 };
 
-const failure = (data) => {
+const failure = () => {
   clearInputField();
-  console.log("OOPS!", data);
 };
 
 
@@ -43,6 +43,7 @@ module.exports = {
   createThoughtSuccess,
   createThoughtFail,
   indexThoughtsSuccess,
+  myThoughtsSuccess,
   updateThoughtSuccess,
   success,
   failure
