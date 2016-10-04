@@ -8,7 +8,12 @@
     </head>
 
     <body class="container-fluid">
-      <h1>Paisel</h1>
+
+      <div class="header">
+        <img src="./assets/images/paisel.png" alt="logo" />
+        <h1>Paisel</h1>
+      </div>
+
 
       <nav>
         <ul class="nav nav-pills pull-right">
@@ -31,11 +36,11 @@
       </nav>
 
       <div class="wrapper">
-        <div id="message"></div>
+        <div class="message" id="message"></div>
 
-        <div class="sign-button">
-          <button type="button" class="btn btn-primary" id="sign-in-button">Log In</button>
-          <button type="button" class="btn btn-primary" id="sign-up-button">Sign Up</button>
+        <div class="sign-buttons">
+          <button type="button" class="btn btn-primary sign-in-button" id="sign-in-button">Log In</button>
+          <button type="button" class="btn btn-primary sign-up-button" id="sign-up-button">Sign Up</button>
         </div>
       </div>
 
@@ -200,6 +205,5 @@
         </div>
       </div>
     </div>
-
     </body>
 </html>
