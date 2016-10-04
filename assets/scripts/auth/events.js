@@ -17,15 +17,6 @@ const showSignUpModal = function (){
   $('#signUpModal').modal('show');
 };
 
-const onSignUp = function (event) {
-  event.preventDefault();
-  $('#signUpModal').modal('hide');
-  let data = getFormFields(event.target);
-  api.signUp(data)
-    .done(ui.signUpSuccess)
-    .fail(ui.signFailure);
-};
-
 const onSignIn = function (event) {
   event.preventDefault();
   $('#signInModal').modal('hide');
@@ -33,6 +24,17 @@ const onSignIn = function (event) {
   let data = getFormFields(event.target);
   api.signIn(data)
     .done(ui.signInSuccess)
+    .fail(ui.signFailure);
+};
+
+const onSignUp = function (event) {
+  event.preventDefault();
+  $('#signUpModal').modal('hide');
+  let data = getFormFields(event.target);
+  api.signUp(data)
+    .done( function(){
+      onSignIn(event, data);
+    })
     .fail(ui.signFailure);
 };
 
