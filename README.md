@@ -27,7 +27,7 @@ Paisel is an anonymous thought sharing app that gives users an outlet for their 
 
 ## Development Process
 
-After installing both the browser and API templates and making sure that I had all of the necessary files ready and organized, I set up User Authentication on the frontend since it was already set up on the backend. Then, I moved to the backend API and generated a scaffold of Thoughts. After configuring the Thoughts Controller to make it protected and only allow certain actions depending on data ownership, I tested all of the actions through curl requests. Once I knew that all of the API endpoints worked, I added all of the Thought features to the frontend. Finally, once all of the actions functioned successfully, I worked on layout and styling of the UI.
+After installing both the browser and API templates and making sure that I had all of the necessary files created and organized, I set up User Authentication on the front end since it was already set up on the back end. Then, I moved to the back end API and generated a scaffold of Thoughts. After configuring the Thoughts Controller to make it protected and only allow certain actions depending on data ownership, I tested all of the actions through curl requests. Once I knew that all of the API endpoints worked, I added all of the Thought features to the front end. Finally, once all of the events functioned successfully, I worked on layout and styling of the user interface.
 
 
 ## Unsolved Problems and Next Steps
@@ -36,7 +36,8 @@ After installing both the browser and API templates and making sure that I had a
 - Code not completely DRY
 - Add Pagination
 - Add features like commenting or polling
+- Include a Username instead of displaying 'User id'
 
-## Wireframes and User Stories
+## Wireframes, User Stories, and Entity Relationship Diagram
 
 - https://drive.google.com/file/d/0B9I6LEzstvUqWi01bUJQSWJKaFE/view?usp=sharing
