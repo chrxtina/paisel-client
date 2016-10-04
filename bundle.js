@@ -333,16 +333,15 @@ webpackJsonp([0],[
 	var api = __webpack_require__(10);
 	var ui = __webpack_require__(11);
 
-	var onCreateThought = function onCreateThought(event) {
-	  event.preventDefault();
-	  var data = getFormFields(event.target);
-	  api.createThought(data).done(ui.createThoughtSuccess).fail(ui.createThoughtFail);
-	  api.indexThoughts().done(ui.indexThoughtsSuccess).fail(ui.failure);
-	};
-
 	var onIndexThoughts = function onIndexThoughts(event) {
 	  event.preventDefault();
 	  api.indexThoughts().done(ui.indexThoughtsSuccess).fail(ui.failure);
+	};
+
+	var onCreateThought = function onCreateThought(event) {
+	  event.preventDefault();
+	  var data = getFormFields(event.target);
+	  api.createThought(data).done(ui.createThoughtSuccess).done(onIndexThoughts(event)).fail(ui.createThoughtFail);
 	};
 
 	var onMyThoughts = function onMyThoughts(event) {
@@ -366,8 +365,7 @@ webpackJsonp([0],[
 	  event.preventDefault();
 	  var id = $(".update-thought-button").attr("data-thought-id");
 	  var data = getFormFields(event.target);
-	  api.updateThought(data, id).done(ui.updateThoughtSuccess).fail(ui.failure);
-	  api.myThoughts().done(ui.myThoughtsSuccess).fail(ui.failure);
+	  api.updateThought(data, id).done(ui.updateThoughtSuccess).done(onMyThoughts(event)).fail(ui.failure);
 	};
 
 	var addIdDeleteButton = function addIdDeleteButton(event) {
@@ -379,8 +377,7 @@ webpackJsonp([0],[
 	var onDeleteThought = function onDeleteThought(event) {
 	  event.preventDefault();
 	  var id = $(this).attr("data-thought-id");
-	  api.deleteThought(id).done(ui.success).fail(ui.failure);
-	  api.myThoughts().done(ui.myThoughtsSuccess).fail(ui.failure);
+	  api.deleteThought(id).done(ui.success).done(onMyThoughts(event)).fail(ui.failure);
 	};
 
 	var addHandlers = function addHandlers() {
