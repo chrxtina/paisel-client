@@ -75,6 +75,11 @@ nav {
 .create-thought-form {
   margin: 0 auto;
   width: 75%;
+
+  .poll-form {
+    margin: 0 auto;
+    width: 50%;
+  }
 }
 
 .sign-buttons {
@@ -91,4 +96,8 @@ nav {
 .thought-buttons {
   display: inline;
   margin: 0 7px;
+}
+
+input[type="radio"]{
+  margin: 0 7px ;
 }

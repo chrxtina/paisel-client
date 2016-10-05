@@ -1,3 +1,22 @@
 <p class="thought">
   User {{user.id}}: "{{content}}"
 </p>
+
+{{#if question}}
+  <p>{{question}}</p>
+{{/if}}
+
+{{#if answers}}
+  <form id="vote-form">
+    <fieldset>
+      <input type="radio" name="vote[choice]" value=0> {{answers.[0]}} <br>
+      {{#if answers.[1]}}
+        <input type="radio" name="vote[choice]" value=1> {{answers.[1]}} <br>
+      {{/if}}
+      {{#if answers.[2]}}
+        <input type="radio" name="vote[choice]" value=2> {{answers.[2]}} <br>
+      {{/if}}
+      <button type="submit" class="btn btn-xs pull-right" name="submit">Vote</button>
+    </fieldset>
+  </form>
+{{/if}}
