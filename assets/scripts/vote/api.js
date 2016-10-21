@@ -14,6 +14,19 @@ const createVote = (data) => {
   });
 };
 
+const voteResults = (data) => {
+  let token = app.user.token;
+  let vote_id = data.vote.id;
+  return $.ajax({
+    url: app.host + '/vote-results/' + vote_id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + token,
+    }
+  });
+};
+
 module.exports = {
-  createVote
+  createVote,
+  voteResults
 };

@@ -7,6 +7,12 @@
 {{/if}}
 
 {{#if answers}}
+
+  <form id="vote-results">
+    <input type="hidden" class="form-control input" name="vote[id]" value="{{id}}">
+    <button type="submit" name="submit" class="btn btn-xs btn-primary pull-right">Results</button>
+  </form>
+
   <form id="create-vote">
     <fieldset>
       {{#if answers.[0]}}
@@ -19,7 +25,8 @@
         <input type="radio" name="vote[choice]" value="c"> {{answers.[2]}} <br>
       {{/if}}
       <input type="hidden" name="vote[thought_id]" value="{{id}}">
-      <button type="submit" class="btn btn-xs pull-right" name="submit">Vote</button>
+      <button type="submit" class="btn btn-xs btn-primary" name="submit">Vote</button>
     </fieldset>
   </form>
+
 {{/if}}
