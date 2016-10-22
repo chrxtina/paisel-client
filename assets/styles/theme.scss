@@ -40,7 +40,7 @@ h1 {
 
 .thought {
   border-top: 1px solid $thought-border;
-  margin: 0;
+  margin-top: 7px;
   padding: 15px 0;
 }
 
@@ -80,6 +80,10 @@ nav {
     margin: 0 auto;
     width: 50%;
   }
+
+  button {
+    margin: 5px;
+  }
 }
 
 .sign-buttons {
@@ -93,15 +97,28 @@ nav {
   }
 }
 
-.thought-buttons {
-  display: inline;
-  margin: 0 7px;
+.display-thoughts-buttons {
+  margin: 10px;
+
+  .thought-buttons {
+    display: inline;
+
+    .all-thoughts-button,
+    .my-thoughts-button {
+      margin: 0 7px;
+    }
+  }
 }
 
+
 input[type="radio"]{
-  margin: 0 7px ;
+  margin: 0 7px;
 }
 
 textarea {
   resize: vertical;
+}
+
+.vote-button {
+  margin: 7px;
 }

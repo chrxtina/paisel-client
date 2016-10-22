@@ -25,7 +25,9 @@
         <input type="radio" name="vote[choice]" value="c"> {{answers.[2]}} <br>
       {{/if}}
       <input type="hidden" name="vote[thought_id]" value="{{id}}">
-      <button type="submit" class="btn btn-xs btn-primary" name="submit">Vote</button>
+      <div class="vote-button">
+        <button type="submit" class="btn btn-xs btn-primary" name="submit">Vote</button>
+      </div>
     </fieldset>
   </form>
 
