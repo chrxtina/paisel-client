@@ -16,7 +16,6 @@
       <h1>Paisel</h1>
     </div>
 
-
     <nav>
       <ul class="nav nav-pills pull-right">
         <li role="presentation" class="dropdown">
@@ -46,15 +45,13 @@
       </div>
     </div>
 
-
     <div class="container">
-
       <!-- Create Thought -->
       <div class="create-thought-form">
         <form id="create-thought">
           <fieldset>
             <div class="form-group">
-              <input type="text" class="form-control input" name="thought[content]" placeholder="Thoughts...">
+              <textarea class="form-control input" name="thought[content]" placeholder="Thoughts..." required></textarea>
             </div>
             <div class="poll-form">
               <input type="text" class="form-control input" name="thought[question]" placeholder="Question">
@@ -88,7 +85,6 @@
       <!-- Display Content -->
       <div class="content-display"></div>
     </div>
-
 
     <!-- Modals -->
     <!-- Sign Up Modal-->
@@ -186,7 +182,7 @@
           <form id="edit-thought">
             <fieldset>
               <div class="form-group">
-                <input type="text" class="form-control input" name="thought[content]" placeholder="Edit your thought!">
+                <textarea class="form-control input" name="thought[content]" placeholder="Edit your thought!" required></textarea>
               </div>
                 <button type="submit" class="btn btn-primary pull-right update-thought-button" name="submit">Submit</button>
             </fieldset>
