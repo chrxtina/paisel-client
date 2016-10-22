@@ -4,9 +4,6 @@
 
 {{#if question}}
   <p>{{question}}</p>
-{{/if}}
-
-{{#if answers}}
 
   <form id="vote-results">
     <input type="hidden" class="form-control input" name="vote[id]" value="{{id}}">
@@ -30,5 +27,4 @@
       </div>
     </fieldset>
   </form>
-
 {{/if}}
