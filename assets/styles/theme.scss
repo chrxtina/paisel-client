@@ -76,11 +76,25 @@ nav {
   margin: 0 auto;
   width: 75%;
 
+  .add-poll-button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    color: $med-grey;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+  }
+
   .poll-form {
     clear: both;
     display: none;
     margin: 0 auto;
     width: 50%;
+
+    input {
+      margin-bottom: 5px;
+    }
   }
 
   button {
