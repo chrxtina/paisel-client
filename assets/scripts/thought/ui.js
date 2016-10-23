@@ -41,8 +41,15 @@ const failure = () => {
   clearInputField();
 };
 
+const setTextareaContent = (event) => {
+  event.preventDefault();
+  let content = $(event.target).attr("data-thought-content");
+  $('.content-textarea').val(content);
+};
+
 const addHandlers = () => {
   $('#add-poll-button').on('click', onTogglePollForm);
+  $('.content-display').on('click','.update-thought',setTextareaContent);
 };
 
 module.exports = {
