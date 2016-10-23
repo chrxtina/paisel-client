@@ -1,3 +1,30 @@
 <p class="thought">
   User {{user.id}}: "{{content}}"
 </p>
+
+{{#if question}}
+  <p>{{question}}</p>
+
+  <form id="vote-results">
+    <input type="hidden" class="form-control input" name="vote[id]" value="{{id}}">
+    <button type="submit" name="submit" class="btn btn-xs btn-primary pull-right">Results</button>
+  </form>
+
+  <form id="create-vote">
+    <fieldset>
+      {{#if answers.[0]}}
+        <input type="radio" name="vote[choice]" value="a"> {{answers.[0]}} <br>
+      {{/if}}
+      {{#if answers.[1]}}
+        <input type="radio" name="vote[choice]" value="b"> {{answers.[1]}} <br>
+      {{/if}}
+      {{#if answers.[2]}}
+        <input type="radio" name="vote[choice]" value="c"> {{answers.[2]}} <br>
+      {{/if}}
+      <input type="hidden" name="vote[thought_id]" value="{{id}}">
+      <div class="vote-button">
+        <button type="submit" class="btn btn-xs btn-primary" name="submit">Vote</button>
+      </div>
+    </fieldset>
+  </form>
+{{/if}}

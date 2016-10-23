@@ -40,7 +40,7 @@ h1 {
 
 .thought {
   border-top: 1px solid $thought-border;
-  margin: 0;
+  margin-top: 7px;
   padding: 15px 0;
 }
 
@@ -63,7 +63,9 @@ nav {
   text-align: center;
 
   .content-display {
+    margin: 0 auto;
     padding-top: 5px;
+    width: 75%;
   }
 }
 
@@ -75,6 +77,31 @@ nav {
 .create-thought-form {
   margin: 0 auto;
   width: 75%;
+
+  .add-poll-button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    color: $med-grey;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+  }
+
+  .poll-form {
+    clear: both;
+    display: none;
+    margin: 0 auto;
+    width: 50%;
+
+    input {
+      margin-bottom: 5px;
+    }
+  }
+
+  button {
+    margin: 5px;
+  }
 }
 
 .sign-buttons {
@@ -88,7 +115,28 @@ nav {
   }
 }
 
-.thought-buttons {
-  display: inline;
+.display-thoughts-buttons {
+  margin: 10px;
+
+  .thought-buttons {
+    display: inline;
+
+    .all-thoughts-button,
+    .my-thoughts-button {
+      margin: 0 7px;
+    }
+  }
+}
+
+
+input[type="radio"]{
   margin: 0 7px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.vote-button {
+  margin: 7px;
 }

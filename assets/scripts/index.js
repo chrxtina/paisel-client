@@ -8,9 +8,13 @@ require('./example');
 
 const authEvents = require('./auth/events.js');
 const thoughtEvents = require('./thought/events.js');
+const thoughtUI = require('./thought/ui.js');
+const voteEvents = require('./vote/events.js');
 
 // On document ready
 $(() => {
   authEvents.addHandlers();
   thoughtEvents.addHandlers();
+  thoughtUI.addHandlers();
+  voteEvents.addHandlers();
 });

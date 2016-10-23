@@ -5,10 +5,6 @@ const getFormFields = require(`../../../lib/get-form-fields`);
 const api = require('./api');
 const ui = require('./ui');
 
-$(window).load(function(){
-  $('nav, .container').hide();
-});
-
 const showSignInModal = function (){
   $('#signInModal').modal('show');
 };
@@ -19,8 +15,6 @@ const showSignUpModal = function (){
 
 const onSignIn = function (event) {
   event.preventDefault();
-  $('#signInModal').modal('hide');
-  $('#sign-in-button').hide();
   let data = getFormFields(event.target);
   api.signIn(data)
     .done(ui.signInSuccess)
@@ -29,18 +23,17 @@ const onSignIn = function (event) {
 
 const onSignUp = function (event) {
   event.preventDefault();
-  $('#signUpModal').modal('hide');
   let data = getFormFields(event.target);
   api.signUp(data)
     .done( function(){
       onSignIn(event, data);
+      ui.signUpSuccess();
     })
     .fail(ui.signFailure);
 };
 
 const onChangePassword = function (event) {
   event.preventDefault();
-  $('#changePasswordModal').modal('hide');
   let data = getFormFields(event.target);
   api.changePassword(data)
     .done(ui.changePasswordSuccess)

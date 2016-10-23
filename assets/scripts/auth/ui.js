@@ -2,6 +2,10 @@
 
 const app = require('../app');
 
+$(window).load(function(){
+  $('nav, .container').hide();
+});
+
 const displayMessage = () => {
   $('#message').fadeIn('fast').delay(3000).fadeOut('fast');
 };
@@ -16,12 +20,13 @@ const showSignButtons = () => {
 };
 
 const signUpSuccess = () => {
-  $('#signInModal').modal('show');
+  $('#signUpModal').modal('hide');
   clearInputField();
 };
 
 const signInSuccess = (data) => {
   app.user = data.user;
+  $('#signInModal').modal('hide');
   $('#sign-in-button').hide();
   $('#sign-up-button').hide();
   clearInputField();
@@ -45,6 +50,7 @@ const signOutSuccess = () => {
 
 const changePasswordSuccess = () => {
   document.getElementById("message").innerHTML = 'Password successfully changed';
+  $('#changePasswordModal').modal('hide');
   displayMessage();
   clearInputField();
 };
