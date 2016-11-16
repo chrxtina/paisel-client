@@ -6,13 +6,17 @@ Back-end repository: https://github.com/chrxtina/paisel-api
 
 ## About
 
-Paisel is an anonymous thought sharing app that gives users an outlet for their thoughts as well as provides a community whereby users may read each others thoughts and, in a sense, not feel alone (fr. *pas seul*).
+Paisel is an anonymous thought sharing app that gives users an outlet for their thoughts as well as provides a community whereby users may read each others thoughts, interact through polls and, in a sense, not feel alone
+(fr. *pas seul*).
 
 ## Features
 
 - User Authentication: sign-up, sign-in, sign-out, and change password
 - Create and view all or own thoughts
+- Add poll question and answers to thought post
 - Edit and delete own thoughts
+- Vote on polls
+- View poll results
 
 ## Technologies Used
 
@@ -35,9 +39,17 @@ After installing both the browser and API templates and making sure that I had a
 - Not responsive
 - Code not completely DRY
 - Add Pagination
-- Add features like commenting or polling
 - Include a Username instead of displaying 'User id'
 
-## Wireframes, User Stories, and Entity Relationship Diagram
+## User Stories
+- As a user, I want a form to create a thought post.
+- As a user, I want an index for 'homepage' to view all users posts.
+- As a user, I want my posts to show option links for editing and deleting my posts.
+- As a user, I want an option to vote on polls.
+- As a user, I want a feature to view poll results.
 
-- https://drive.google.com/file/d/0B9I6LEzstvUqWi01bUJQSWJKaFE/view?usp=sharing
+## Wireframes
+https://drive.google.com/file/d/0B9I6LEzstvUqWE9KMzJxMzdNNGs/view?usp=sharing
+
+## Entity Relationship Diagram
+https://docs.google.com/drawings/d/1hva3JKkg5KSVhLwGxbQvC_kXQXccK6X-kJP34JxwlEs/edit?usp=sharing
