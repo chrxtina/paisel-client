@@ -1976,7 +1976,7 @@ webpackJsonp([0],[
 	  document.getElementById("answer-C").innerHTML = data.answers[2];
 	  if (data.percent.c) {
 	    document.getElementById("prog-bar-C").innerHTML = data.percent.c * 100 + "%";
-	    $("#prog-bar-C").css('width', "0%");
+	    $("#prog-bar-C").css('width', data.percent.c * 100 + "%");
 	  } else {
 	    document.getElementById("prog-bar-C").innerHTML = "0%";
 	    $("#prog-bar-C").css('width', "0%");
